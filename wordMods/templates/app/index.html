@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play with Words</title>
+	<!-- Using Material CSS CDN -->
+
+      <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style type="text/css">
+      	body{
+      		font-family: "Abel";
+      		margin:40px;
+      	}
+      </style>
+</head>
+<body>
+	<center><h1>Play with words.</h1></center>
+	<form method="POST" action="{% url 'app:index' %}">
+		{% csrf_token %}
+		<!-- <label for="word_to_stem">Word</label> -->
+		<input type="text" name="word" maxlength="20" placeholder="Type the word you want to stem here and press Enter Key" id="word_to_stem">
+		<h4>Result according our stemmer: {{ res }}</h4>
+		<h4>Result according to porter stemmer: {{ word }}</h4>
+            <a href="/app/lemmr" class="btn">Go to Lemmatizer</a>
+	</form>
+</body>
+</html>
